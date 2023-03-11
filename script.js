@@ -14,4 +14,11 @@ const reverseString = (word) => {
   return reverseWord.join("");
 };
 
-export { capitalize, reverseString };
+const calculator = {
+  sum: (num1, num2) => num1 + num2,
+  substract: (num1, num2) => num1 - num2,
+  divide: (num1, num2) => Number(parseFloat(num1 / num2).toFixed(3)),
+  multiply: (num1, num2) => num1 * num2,
+};
+
+export { capitalize, reverseString, calculator };
