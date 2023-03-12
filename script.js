@@ -25,9 +25,24 @@ const caesarCipher = (word) => {
 
   const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-  const nextWordIndex = alphabet.indexOf(word) + 1
+  const wordLetters = word.split("")
 
-  return alphabet[nextWordIndex]
+  const nextWords = []
+
+  for (let i = 0; i < wordLetters.length; i++) {
+
+    const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
+
+    nextWords.push(alphabet[nextWordIndex])
+
+  }
+
+
+
+  const finalWord = nextWords.join("")
+
+
+  return finalWord
 
 }
 
