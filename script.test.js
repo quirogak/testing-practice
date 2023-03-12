@@ -70,8 +70,13 @@ test("can receive a letter and returns the next", () => {
   expect(caesarCipher("a")).toBe("b");
 });
 
-test("can receive a two letters word and returns them ciphered ", () => {
+test("can receive a two letters word and returns it ciphered", () => {
   expect(caesarCipher("hi")).toBe("ij");
 });
+
+test("can receive multiple words and returns them ciphered", () => {
+  expect(caesarCipher("how are you")).toBe("ipx bsf zpv");
+});
+
 
 

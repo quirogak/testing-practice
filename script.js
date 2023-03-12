@@ -31,13 +31,14 @@ const caesarCipher = (word) => {
 
   for (let i = 0; i < wordLetters.length; i++) {
 
-    const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
+    if (wordLetters[i] === " ") { nextWords.push(" ") }   // detect blank spaces and push them
 
-    nextWords.push(alphabet[nextWordIndex])
+    if (wordLetters[i] !== " ") { // avoid pushing blank spaces indexes
+      const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
+      nextWords.push(alphabet[nextWordIndex])
+    }
 
   }
-
-
 
   const finalWord = nextWords.join("")
 
