@@ -21,4 +21,14 @@ const calculator = {
   multiply: (num1, num2) => num1 * num2,
 };
 
-export { capitalize, reverseString, calculator };
+const caesarCipher = (word) => {
+
+  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+  const nextWordIndex = alphabet.indexOf(word) + 1
+
+  return alphabet[nextWordIndex]
+
+}
+
+export { capitalize, reverseString, calculator, caesarCipher };
