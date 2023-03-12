@@ -78,5 +78,10 @@ test("can receive multiple words and returns them ciphered", () => {
   expect(caesarCipher("how are you")).toBe("ipx bsf zpv");
 });
 
+test("can receive an upper case letter and return the ciphered upper case letter", () => {
+  expect(caesarCipher("Hey")).toBe("Ifz");
+});
+
+
 
 

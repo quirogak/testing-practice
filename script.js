@@ -25,17 +25,25 @@ const caesarCipher = (word) => {
 
   const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
+  const upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
   const wordLetters = word.split("")
 
   const nextWords = []
 
   for (let i = 0; i < wordLetters.length; i++) {
 
-    if (wordLetters[i] === " ") { nextWords.push(" ") }   // detect blank spaces and push them
+    if (wordLetters[i] === " ") { nextWords.push(" ") }   // detect blank spaces and push them directly
 
     if (wordLetters[i] !== " ") { // avoid pushing blank spaces indexes
-      const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
-      nextWords.push(alphabet[nextWordIndex])
+      if (wordLetters[i] === wordLetters[i].toUpperCase()) {
+        const nextWordIndex = upperCaseAlphabet.indexOf(wordLetters[i]) + 1
+        nextWords.push(upperCaseAlphabet[nextWordIndex])
+      }
+      else {
+        const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
+        nextWords.push(alphabet[nextWordIndex])
+      }
     }
 
   }
