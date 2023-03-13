@@ -22,42 +22,72 @@ const calculator = {
 };
 
 const caesarCipher = (word, jumpNum) => {
+  if (jumpNum === undefined) jumpNum = 1;
 
-  if (jumpNum === undefined) jumpNum = 1
+  let alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
 
-  let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  const wordLetters = word.split("");
 
-  const upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  const nextWords = [];
 
-  const wordLetters = word.split("")
-
-  const nextWords = []
+  let overflowCount = 1;
 
   for (let i = 0; i < wordLetters.length; i++) {
+    if (wordLetters[i] === " ") {
+      nextWords.push(" ");
+    } // detect blank spaces and push them directly
 
-    if (wordLetters[i] === " ") { nextWords.push(" ") }   // detect blank spaces and push them directly
+    if (wordLetters[i] !== " ") {
+      // avoid pushing blank spaces indexes
 
-    if (wordLetters[i] !== " ") { // avoid pushing blank spaces indexes
+      const nextWordIndex =
+        alphabet.indexOf(wordLetters[i].toLowerCase()) + jumpNum;
 
-      const nextWordIndex = alphabet.indexOf(wordLetters[i].toLowerCase()) + jumpNum
+      if (nextWordIndex > alphabet.length - 1) {
+        overflowCount++;
 
-      if (nextWordIndex > alphabet.length - 1) alphabet = alphabet.concat(alphabet) // when the index is bigger than the alphabet, we concat a new alphabet to the current alphabet.
-
-      if (wordLetters[i] === wordLetters[i].toUpperCase()) {
-        nextWords.push(upperCaseAlphabet[nextWordIndex])
+        for (let i = 0; i <= overflowCount + 1; i++) {
+          alphabet = alphabet.concat(alphabet); // when the index is bigger than the alphabet, we concat a new alphabet to the current alphabet.
+        }
       }
-      else {
-        nextWords.push(alphabet[nextWordIndex])
+      if (wordLetters[i] === wordLetters[i].toUpperCase()) { // simple uppercase check
+        nextWords.push(alphabet[nextWordIndex].toUpperCase());
+      } else {
+        nextWords.push(alphabet[nextWordIndex]);
       }
     }
-
   }
 
-  const finalWord = nextWords.join("")
+  const finalWord = nextWords.join("");
 
-
-  return finalWord
-
-}
+  return finalWord;
+};
 
 export { capitalize, reverseString, calculator, caesarCipher };

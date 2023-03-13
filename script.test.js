@@ -63,7 +63,6 @@ test("can return a multiplication between two big numbers ", () => {
   expect(calculator.multiply(935, 521)).toBe(487135);
 });
 
-
 // caesarCipher
 
 test("can receive a letter and returns the next", () => {
@@ -94,8 +93,6 @@ test("can jump z to b", () => {
   expect(caesarCipher("z", 2)).toBe("b");
 });
 
-
-
-
-
-
+test("can jump an absurdly high number of letters", () => {
+  expect(caesarCipher("Javascript is great", 200)).toBe("Bsnskujahl ak yjwsl");
+});
