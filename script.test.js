@@ -86,9 +86,15 @@ test("can receive the number of words 'jumped'", () => {
   expect(caesarCipher("Greetings", 2)).toBe("Itggvkpiu");
 });
 
-test("can jump z to a ", () => {
+test("can jump z to a", () => {
   expect(caesarCipher("z")).toBe("a");
 });
+
+test("can jump z to b", () => {
+  expect(caesarCipher("z", 2)).toBe("b");
+});
+
+
 
 
 

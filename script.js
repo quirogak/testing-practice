@@ -25,7 +25,7 @@ const caesarCipher = (word, jumpNum) => {
 
   if (jumpNum === undefined) jumpNum = 1
 
-  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
   const upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -39,9 +39,9 @@ const caesarCipher = (word, jumpNum) => {
 
     if (wordLetters[i] !== " ") { // avoid pushing blank spaces indexes
 
-      let nextWordIndex = alphabet.indexOf(wordLetters[i].toLowerCase()) + jumpNum
+      const nextWordIndex = alphabet.indexOf(wordLetters[i].toLowerCase()) + jumpNum
 
-      if (nextWordIndex > 25) nextWordIndex = 0 // if the index is beyond z, restart the index count.
+      if (nextWordIndex > alphabet.length - 1) alphabet = alphabet.concat(alphabet) // when the index is bigger than the alphabet, we concat a new alphabet to the current alphabet.
 
       if (wordLetters[i] === wordLetters[i].toUpperCase()) {
         nextWords.push(upperCaseAlphabet[nextWordIndex])
