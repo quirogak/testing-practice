@@ -82,6 +82,14 @@ test("can receive an upper case letter and return the ciphered upper case letter
   expect(caesarCipher("Hey")).toBe("Ifz");
 });
 
+test("can receive the number of words 'jumped'", () => {
+  expect(caesarCipher("Greetings", 2)).toBe("Itggvkpiu");
+});
+
+test("can jump z to a ", () => {
+  expect(caesarCipher("z")).toBe("a");
+});
+
 
 
 

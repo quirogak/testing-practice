@@ -21,7 +21,9 @@ const calculator = {
   multiply: (num1, num2) => num1 * num2,
 };
 
-const caesarCipher = (word) => {
+const caesarCipher = (word, jumpNum) => {
+
+  if (jumpNum === undefined) jumpNum = 1
 
   const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
@@ -36,12 +38,15 @@ const caesarCipher = (word) => {
     if (wordLetters[i] === " ") { nextWords.push(" ") }   // detect blank spaces and push them directly
 
     if (wordLetters[i] !== " ") { // avoid pushing blank spaces indexes
+
+      let nextWordIndex = alphabet.indexOf(wordLetters[i].toLowerCase()) + jumpNum
+
+      if (nextWordIndex > 25) nextWordIndex = 0 // if the index is beyond z, restart the index count.
+
       if (wordLetters[i] === wordLetters[i].toUpperCase()) {
-        const nextWordIndex = upperCaseAlphabet.indexOf(wordLetters[i]) + 1
         nextWords.push(upperCaseAlphabet[nextWordIndex])
       }
       else {
-        const nextWordIndex = alphabet.indexOf(wordLetters[i]) + 1
         nextWords.push(alphabet[nextWordIndex])
       }
     }
