@@ -77,7 +77,8 @@ const caesarCipher = (word, jumpNum) => {
           alphabet = alphabet.concat(alphabet); // when the index is bigger than the alphabet, we concat a new alphabet to the current alphabet.
         }
       }
-      if (wordLetters[i] === wordLetters[i].toUpperCase()) { // simple uppercase check
+      if (wordLetters[i] === wordLetters[i].toUpperCase()) {
+        // simple uppercase check
         nextWords.push(alphabet[nextWordIndex].toUpperCase());
       } else {
         nextWords.push(alphabet[nextWordIndex]);
@@ -91,16 +92,19 @@ const caesarCipher = (word, jumpNum) => {
 };
 
 const analizeArray = (arr) => {
+  const { length } = arr;
 
-  const { length } = arr
+  const min = Math.min(...arr);
 
-  const min = Math.min(...arr)
+  const max = Math.max(...arr);
 
-  const max = Math.max(...arr)
+  const average = () => {
+    const sumAll = arr.reduce((prev, curr) => prev + curr);
 
-  return { length, min, max }
+    return Number((sumAll / arr.length).toFixed(1));
+  };
 
-}
-
+  return { length, min, max, average };
+};
 
 export { capitalize, reverseString, calculator, caesarCipher, analizeArray };
