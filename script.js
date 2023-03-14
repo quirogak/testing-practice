@@ -96,7 +96,9 @@ const analizeArray = (arr) => {
 
   const min = Math.min(...arr)
 
-  return { length, min }
+  const max = Math.max(...arr)
+
+  return { length, min, max }
 
 }
 

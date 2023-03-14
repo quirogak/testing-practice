@@ -106,6 +106,11 @@ test("can return the min value of the given array", () => {
   expect(analizeArray([2, 3, 4]).min).toBe(2);
 });
 
+test("can return the max value of the given array", () => {
+  expect(analizeArray([2, 3, 4, 3, 6, 5]).max).toBe(6);
+});
+
+
 
 
 
