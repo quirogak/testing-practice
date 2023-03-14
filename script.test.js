@@ -102,6 +102,10 @@ test("can return the length of the given array", () => {
   expect(analizeArray([1, 2, 3]).length).toBe(3);
 });
 
+test("can return the min value of the given array", () => {
+  expect(analizeArray([2, 3, 4]).min).toBe(2);
+});
+
 
 
 
