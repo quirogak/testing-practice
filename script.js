@@ -90,4 +90,13 @@ const caesarCipher = (word, jumpNum) => {
   return finalWord;
 };
 
-export { capitalize, reverseString, calculator, caesarCipher };
+const analizeArray = (arr) => {
+
+  const { length } = arr
+
+  return { length }
+
+}
+
+
+export { capitalize, reverseString, calculator, caesarCipher, analizeArray };

@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, caesarCipher } from "./script";
+import { capitalize, reverseString, calculator, caesarCipher, analizeArray } from "./script";
 
 // capitalize
 test("the first letter is capitalized", () => {
@@ -63,6 +63,7 @@ test("can return a multiplication between two big numbers ", () => {
   expect(calculator.multiply(935, 521)).toBe(487135);
 });
 
+
 // caesarCipher
 
 test("can receive a letter and returns the next", () => {
@@ -96,3 +97,13 @@ test("can jump z to b", () => {
 test("can jump an absurdly high number of letters", () => {
   expect(caesarCipher("Javascript is great", 200)).toBe("Bsnskujahl ak yjwsl");
 });
+
+test("can return the length of the given array", () => {
+  expect(analizeArray([1, 2, 3]).length).toBe(3);
+});
+
+
+
+
+
+
